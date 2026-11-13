@@ -1,9 +1,12 @@
 {
   "name": "Ambiente RASI com Docker",
   "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
-  "privileged": true,
   "features": {
-    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+    "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {
+      "moby": true,
+      "installDockerBuildx": true,
+      "installDockerCompose": true
+    }
   },
   "forwardPorts": [80, 5000],
   "portsAttributes": {
