@@ -1,6 +1,11 @@
 {
   "name": "Ambiente RASI com Docker",
   "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+  "privileged": true,
+  "init": true,
+  "mounts": [
+    "source=/var/lib/docker,target=/var/lib/docker,type=volume"
+  ],
   "features": {
     "ghcr.io/devcontainers/features/docker-in-docker:2": {
       "version": "latest",
