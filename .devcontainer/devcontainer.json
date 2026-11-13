@@ -1,0 +1,22 @@
+{
+  "name": "Ambiente RASI com Docker",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {
+      "version": "latest",
+      "enableNonRootDocker": "true",
+      "moby": "true"
+    }
+  },
+  "forwardPorts": [80, 5000],
+  "portsAttributes": {
+    "80": {
+      "label": "Aplicação Flask via Apache",
+      "onAutoForward": "openBrowser"
+    },
+    "5000": {
+      "label": "Flask direto"
+    }
+  },
+  "postCreateCommand": "docker --version && docker compose version"
+}
